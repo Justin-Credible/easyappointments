@@ -198,6 +198,25 @@ class CI_DB_mysqli_driver extends CI_DB {
 			}
 		}
 
+		// HACK: JGU: Add these flags here since EasyAppointments doesn't have a config item for them.
+		$client_flags |= MYSQLI_CLIENT_SSL;
+		$client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+
+		// // HACK: JGU: Uncomment to see DB connection errors.
+		// $result = $this->_mysqli->real_connect($hostname, $this->username, $this->password, $this->database, $port, $socket, $client_flags);
+		// var_dump([
+		// 	// 'hostname' => $hostname,
+		// 	// 'username' => $this->username,
+		// 	// // 'password' => $this->password,
+		// 	// 'database' => $this->database,
+		// 	// 'port' => $port,
+		// 	// 'socket' => $socket,
+		// 	// 'client_flags' => $client_flags,
+		// 	'result' => $result,
+		// 	'err' => $this->_mysqli->connect_error,
+		// ]);
+		// die();
+
 		if ($this->_mysqli->real_connect($hostname, $this->username, $this->password, $this->database, $port, $socket, $client_flags))
 		{
 			// Prior to version 5.7.3, MySQL silently downgrades to an unencrypted connection if SSL setup fails
