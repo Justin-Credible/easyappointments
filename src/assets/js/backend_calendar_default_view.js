@@ -1006,17 +1006,19 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
 
         var defaultView = window.innerWidth < 468 ? 'agendaDay' : 'agendaWeek';
 
-
         // Initialize page calendar
         $('#calendar').fullCalendar({
             defaultView: defaultView,
             height: _getCalendarHeight(),
             editable: true,
-            firstDay: 0, // Sunday
+            firstDay: 0, // HACK: JGU: Start calendar widget on Sunday.
             slotMinutes: 30,
             snapMinutes: 15,
-            axisFormat: 'HH:mm',
-            timeFormat: 'HH:mm{ - HH:mm}',
+            // HACK: JGU: 12 Hour Time
+            // axisFormat: 'HH:mm',
+            // timeFormat: 'HH:mm{ - HH:mm}',
+            axisFormat: 'h:mm TT',
+            timeFormat: 'h:mm tt{ - h:mm tt}',
             allDayText: EALang['all_day'],
             columnFormat: columnFormat,
             titleFormat: {

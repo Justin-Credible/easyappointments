@@ -412,7 +412,8 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
             timeText: EALang['time'],
             hourText: EALang['hour'],
             minuteText: EALang['minutes'],
-            firstDay: 0 // Sunday
+            timeFormat: "h:mm tt", // HACK: JGU: 12 Hour Time
+            firstDay: 0 // HACK: JGU: Start calendar widget on Sunday.
         });
         $dialog.find('#start-datetime').datetimepicker('setDate', startDatetime);
 
@@ -441,7 +442,8 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
             timeText: EALang['time'],
             hourText: EALang['hour'],
             minuteText: EALang['minutes'],
-            firstDay: 0 // Sunday
+            timeFormat: "h:mm tt", // HACK: JGU: 12 Hour Time
+            firstDay: 0 // HACK: JGU: Start calendar widget on Sunday.
         });
         $dialog.find('#end-datetime').datetimepicker('setDate', endDatetime);
     };

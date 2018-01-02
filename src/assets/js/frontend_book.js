@@ -62,7 +62,7 @@ window.FrontendBook = window.FrontendBook || {};
 
         $('#select-date').datepicker({
             dateFormat: 'dd-mm-yy',
-            firstDay: 0, // Sunday
+            firstDay: 0, // HACK: JGU: Start calendar widget on Sunday.
             minDate: 0,
             defaultDate: Date.today(),
 

@@ -202,7 +202,8 @@ window.BackendCalendarUnavailabilitiesModal = window.BackendCalendarUnavailabili
             timeText: EALang['time'],
             hourText: EALang['hour'],
             minuteText: EALang['minutes'],
-            firstDay: 0 // Sunday
+            timeFormat: "h:mm tt", // HACK: JGU: 12 Hour Time
+            firstDay: 0 // HACK: JGU: Start calendar widget on Sunday.
         });
         $dialog.find('#unavailable-start').val(start);
 
@@ -231,7 +232,8 @@ window.BackendCalendarUnavailabilitiesModal = window.BackendCalendarUnavailabili
             timeText: EALang['time'],
             hourText: EALang['hour'],
             minuteText: EALang['minutes'],
-            firstDay: 0 // Sunday
+            timeFormat: "h:mm tt", // HACK: JGU: 12 Hour Time
+            firstDay: 0 // HACK: JGU: Start calendar widget on Sunday.
         });
         $dialog.find('#unavailable-end').val(end);
 
