@@ -449,9 +449,17 @@ window.FrontendBook = window.FrontendBook || {};
             zip_code: $('#zip-code').val()
         };
 
+        //var selectedHour = Date.parse($('.selected-hour').text()).toString('HH:mm');
+        var selectedHourParsed = Date.parse($('.selected-hour').text());
+        var selectedHour = '';
+
+        if (selectedHourParsed) {
+            selectedHour = selectedHourParsed.toString('HH:mm');
+        }
+
         postData['appointment'] = {
             start_datetime: $('#select-date').datepicker('getDate').toString('yyyy-MM-dd')
-                                    + ' ' + $('.selected-hour').text() + ':00',
+                                    + ' ' + selectedHour + ':00',
             end_datetime: _calcEndDatetime(),
             notes: $('#notes').val(),
             is_unavailable: false,
@@ -487,8 +495,16 @@ window.FrontendBook = window.FrontendBook || {};
         });
 
         // Add the duration to the start datetime.
+        // var selectedHour = Date.parse($('.selected-hour').text()).toString('HH:mm');
+        var selectedHourParsed = Date.parse($('.selected-hour').text());
+        var selectedHour = '';
+
+        if (selectedHourParsed) {
+            selectedHour = selectedHourParsed.toString('HH:mm');
+        }
+
         var startDatetime = $('#select-date').datepicker('getDate').toString('dd-MM-yyyy')
-                + ' ' + $('.selected-hour').text();
+                + ' ' + selectedHour;
         startDatetime = Date.parseExact(startDatetime, 'dd-MM-yyyy HH:mm');
         var endDatetime = undefined;
 
