@@ -468,6 +468,50 @@ class Appointments extends CI_Controller {
                 log_message('error', $exc->getTraceAsString());
             }
 
+            // JGU: Send notification SMS to both customer and provider.
+            try {
+                $this->config->load('sms');
+                $sms = new \EA\Engine\Notifications\SMS($this, $this->config->config);
+
+                if ($post_data['manage_mode'] == FALSE) {
+                    $customer_title = new Text($this->lang->line('appointment_booked'));
+                    $customer_message = new Text($this->lang->line('thank_you_for_appointment'));
+                    $provider_title = new Text($this->lang->line('appointment_added_to_your_plan'));
+                    $provider_message = new Text($this->lang->line('appointment_link_description'));
+
+                } else {
+                    $customer_title = new Text($this->lang->line('appointment_changes_saved'));
+                    $customer_message = new Text('');
+                    $provider_title = new Text($this->lang->line('appointment_details_changed'));
+                    $provider_message = new Text('');
+                }
+
+                $customer_link = new Url(site_url('appointments/index/' . $appointment['hash']));
+                $provider_link = new Url(site_url('backend/index/' . $appointment['hash']));
+
+                $send_customer = filter_var($this->settings_model->get_setting('customer_notifications'),
+                        FILTER_VALIDATE_BOOLEAN);
+
+                if ($send_customer === TRUE) {
+                    $sms->sendAppointmentDetails($appointment, $provider,
+                            $service, $customer,$company_settings, $customer_title,
+                            $customer_message, $customer_link, $customer['phone_number']);
+                }
+
+                $send_provider = filter_var($this->providers_model ->get_setting('notifications', $provider['id']),
+                        FILTER_VALIDATE_BOOLEAN);
+
+                if ($send_provider === TRUE) {
+                    $sms->sendAppointmentDetails($appointment, $provider,
+                            $service, $customer, $company_settings, $provider_title,
+                            $provider_message, $provider_link, $provider['mobile_number']);
+                }
+            }
+            catch (Exception $exception) {
+                log_message('error', $exception->getMessage());
+                log_message('error', $exception->getTraceAsString());
+            }
+
             echo json_encode(array(
                     'appointment_id' => $appointment['id']
                 ));
