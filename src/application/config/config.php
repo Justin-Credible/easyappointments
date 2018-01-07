@@ -238,7 +238,9 @@ $config['log_threshold'] = 1;
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = __DIR__ . '/../../storage/logs/';
+// $config['log_path'] = __DIR__ . '/../../storage/logs/';
+// JGU: Change log files path to be outside of the site root, same as Azure logs.
+$config['log_path'] = __DIR__ . '/../../../../LogFiles/EasyAppointments/';
 
 /*
 |--------------------------------------------------------------------------
