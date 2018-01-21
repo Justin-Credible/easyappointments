@@ -33,6 +33,10 @@
                     <td class="label" style="padding: 3px;font-weight: bold;">End</td>
                     <td style="padding: 3px;">$appointment_end_date</td>
                 </tr>
+                <tr>
+                    <td class="label" style="padding: 3px;font-weight: bold;">Notes</td>
+                    <td style="padding: 3px;">$appointment_notes</td>
+                </tr>
             </table>
 
             <h2>Customer Details</h2>
@@ -49,10 +53,12 @@
                     <td class="label" style="padding: 3px;font-weight: bold;">Phone</td>
                     <td style="padding: 3px;">$customer_phone</td>
                 </tr>
+                <!--
                 <tr>
                     <td class="label" style="padding: 3px;font-weight: bold;">Address</td>
                     <td style="padding: 3px;">$customer_address</td>
                 </tr>
+                -->
             </table>
 
             <h2>Appointment Link</h2>

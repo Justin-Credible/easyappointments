@@ -493,8 +493,10 @@ class Appointments extends CI_Controller {
                         FILTER_VALIDATE_BOOLEAN);
 
                 if ($send_customer === TRUE) {
+                    // JGU: NOTE: Don't send the $customer object here because the customer doesn't need
+                    // to see their own contact information in the SMS that they receive.
                     $sms->sendAppointmentDetails($appointment, $provider,
-                            $service, $customer,$company_settings, $customer_title,
+                            $service, null, $company_settings, $customer_title,
                             $customer_message, $customer_link, $customer['phone_number']);
                 }
 

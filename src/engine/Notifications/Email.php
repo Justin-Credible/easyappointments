@@ -101,9 +101,10 @@ class Email {
             // HACK: JGU: Use 12 hour time format.
             // '$appointment_start_date' => date('d/m/Y H:i', strtotime($appointment['start_datetime'])),
             // '$appointment_end_date' => date('d/m/Y H:i', strtotime($appointment['end_datetime'])),
-            '$appointment_start_date' => date('d/m/Y g:i a', strtotime($appointment['start_datetime'])),
-            '$appointment_end_date' => date('d/m/Y g:i a', strtotime($appointment['end_datetime'])),
+            '$appointment_start_date' => date('m/d/Y g:i a', strtotime($appointment['start_datetime'])),
+            '$appointment_end_date' => date('m/d/Y g:i a', strtotime($appointment['end_datetime'])),
             '$appointment_link' => $appointmentLink->get(),
+            '$appointment_notes' => $appointment['notes'],
             '$company_link' => $company['company_link'],
             '$company_name' => $company['company_name'],
             '$customer_name' => $customer['first_name'] . ' ' . $customer['last_name'],
@@ -171,7 +172,7 @@ class Email {
             '$appointment_provider' => $provider['first_name'] . ' ' . $provider['last_name'],
             // HACK: JGU: Use 12 hour time format.
             //'$appointment_date' => date('d/m/Y H:i', strtotime($appointment['start_datetime'])),
-            '$appointment_date' => date('d/m/Y g:i a', strtotime($appointment['start_datetime'])),
+            '$appointment_date' => date('m/d/Y g:i a', strtotime($appointment['start_datetime'])),
             '$appointment_duration' => $service['duration'] . ' minutes',
             '$company_link' => $company['company_link'],
             '$company_name' => $company['company_name'],
