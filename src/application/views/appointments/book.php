@@ -121,7 +121,8 @@
 
                 <div id="wizard-frame-1" class="wizard-frame">
                     <div class="frame-container">
-                        <h3 class="frame-title"><?php echo $this->lang->line('step_one_title'); ?></h3>
+                        <!-- JGU: Hide redundant, huge title. -->
+                        <h3 class="frame-title" style="display: none;"><?php echo $this->lang->line('step_one_title'); ?></h3>
 
                         <div class="frame-content">
                             <div class="form-group">
@@ -186,7 +187,8 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
+                            <!-- JGU: Hide provider field -->
+                            <div class="form-group" style="display: none;">
                                 <label for="select-provider">
                                     <strong><?php echo $this->lang->line('select_provider'); ?></strong>
                                 </label>
@@ -274,15 +276,18 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
+                                <!-- JGU: Hide address fields -->
+                                <div class="form-group" style="display: none;">
                                     <label for="address" class="control-label"><?php echo $this->lang->line('address'); ?></label>
                                     <input type="text" id="address" class="form-control" maxlength="250" />
                                 </div>
-                                <div class="form-group">
+                                <!-- JGU: Hide address fields -->
+                                <div class="form-group" style="display: none;">
                                     <label for="city" class="control-label"><?php echo $this->lang->line('city'); ?></label>
                                     <input type="text" id="city" class="form-control" maxlength="120" />
                                 </div>
-                                <div class="form-group">
+                                <!-- JGU: Hide address fields -->
+                                <div class="form-group" style="display: none;">
                                     <label for="zip-code" class="control-label"><?php echo $this->lang->line('zip_code'); ?></label>
                                     <input type="text" id="zip-code" class="form-control" maxlength="120" />
                                 </div>
@@ -362,6 +367,7 @@
                     // ------------------------------------------------------ ?>
 
                 <div id="frame-footer">
+                    <?php /*
                     Powered By
                     <a href="http://easyappointments.org" target="_blank">Easy!Appointments</a>
                     |
@@ -374,6 +380,8 @@
                             ? $this->lang->line('backend_section') 
                             : $this->lang->line('login'); ?>
                     </a>
+                    */ ?>
+                    <a href="<?php echo $company_link; ?>"><?php echo $company_name; ?></a>
                 </div>
             </div>
         </div>

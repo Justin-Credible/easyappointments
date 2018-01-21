@@ -426,11 +426,12 @@ window.FrontendBook = window.FrontendBook || {};
                 '<br/>' +
                 EALang['email'] + ': ' + email +
                 '<br/>' +
-                EALang['address'] + ': ' + address +
-                '<br/>' +
-                EALang['city'] + ': ' + city +
-                '<br/>' +
-                EALang['zip_code'] + ': ' + zipCode +
+                // JGU: Hide address fields.
+                // EALang['address'] + ': ' + address +
+                // '<br/>' +
+                // EALang['city'] + ': ' + city +
+                // '<br/>' +
+                // EALang['zip_code'] + ': ' + zipCode +
             '</p>';
 
         $('#customer-details').html(html);
