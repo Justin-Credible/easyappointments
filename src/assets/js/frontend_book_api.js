@@ -138,6 +138,9 @@ window.FrontendBookApi = window.FrontendBookApi || {};
         var postUrl = GlobalVariables.baseUrl + '/index.php/appointments/ajax_register_appointment';
         var $layer = $('<div/>');
 
+        // JGU: Overlay an activity indicator, taken from: http://tobiasahlin.com/spinkit/
+        var $loader = $('<div class="ajax_loader_modal"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>')
+
         $.ajax({
             url: postUrl,
             method: 'post',
@@ -155,6 +158,8 @@ window.FrontendBookApi = window.FrontendBookApi || {};
                         width: '100vw',
                         opacity: '0.5'
                     });
+
+                $loader.appendTo('body');
             }
         })
             .done(function(response) {
@@ -188,6 +193,7 @@ window.FrontendBookApi = window.FrontendBookApi || {};
             })
             .always(function() {
                 $layer.remove();
+                $loader.remove();
             });
     };
 
