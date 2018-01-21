@@ -75,9 +75,10 @@ class SMS {
 
         curl_setopt($curl, CURLOPT_USERPWD, "$accountId:$authToken");
 
+        $company_name = $company['company_name'];
         $titleString = $title ? $title->get() : '';
         $messageString = $message ? $message->get() : '';
-        $body = "$titleString\n$messageString";
+        $body = "$company_name\n$titleString\n$messageString";
 
         if ($appointment) {
             $appointment_start_date = date('m/d/Y g:i a', strtotime($appointment['start_datetime']));

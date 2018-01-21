@@ -1,7 +1,9 @@
 <?php
 // English
 $lang['page_title'] = 'Book Appointment With';
-$lang['step_one_title'] = 'Select Service & Provider';
+// $lang['step_one_title'] = 'Select Service & Provider';
+// JGU: Hide references to provider.
+$lang['step_one_title'] = 'Select Service';
 $lang['select_service'] = 'Select Service';
 $lang['select_provider'] = 'Select Provider';
 $lang['duration'] = 'Duration';
@@ -34,8 +36,11 @@ $lang['reason'] = 'Reason';
 $lang['appointment_removed_from_schedule'] = 'The following appointment was removed from the company\'s schedule.';
 $lang['appointment_details_was_sent_to_you'] = 'An email and/or SMS with the appointment details has been sent to you.';
 $lang['add_to_google_calendar'] = 'Add to Google Calendar';
-$lang['appointment_booked'] = 'Your appointment has been successfully booked!';
-$lang['thank_you_for_appointment'] = 'Thank you for arranging an appointment with us. Below you can see the appointment details. Make changes by clicking the appointment link.';
+// JGU: Customize the messages.
+// $lang['appointment_booked'] = 'Your appointment has been successfully booked!';
+// $lang['thank_you_for_appointment'] = 'Thank you for arranging an appointment with us. Below you can see the appointment details. Make changes by clicking the appointment link.';
+$lang['appointment_booked'] = 'Your appointment has been successfully booked! 💇';
+$lang['thank_you_for_appointment'] = 'Thank you for making an appointment with me! ❤️ If you need to make changes, call, text, or use the link below.';
 $lang['appointment_details_title'] = 'Appointment Details';
 $lang['customer_details_title'] = 'Customer Details';
 $lang['service'] = 'Service';
